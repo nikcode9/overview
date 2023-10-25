@@ -46,7 +46,7 @@ Now: Ansible 2.10 and later
   * Some documentation.
   * A tiny subset of modules and plugins to allow for a functioning controller.
   * Together this will be known as ``ansible-base``.
-* The rest of the modules and plugins have been moved into various "collections"
+* The rest of the modules and plugins have been moved into various "collections".
 
   * Ansible Collections:
 
@@ -54,7 +54,7 @@ Now: Ansible 2.10 and later
     * Will have their own repo (GitHub, GitLab, etc) with dedicated backlog, ie no more shared massive issue & PR backlog.
     * Should still have CI testing and in many cases can be tested more thoroughly.
 
-* The released package of Ansible 2.10 will pull in ``ansible-base`` and the various community collections that were previously a part of ``ansible/ansible``
+* The released package of Ansible 2.10 will pull in ``ansible-base`` and the various community collections that were previously a part of ``ansible/ansible``.
 
 The ``ansible`` package (will contain a subset of collections) and depend on the new ``ansible-base`` package (the Ansible engine).
 
@@ -104,8 +104,8 @@ Documentation
 ==============
 
 * `Using Ansible Collections <https://docs.ansible.com/ansible/latest/user_guide/collections_using.html>`_.
-* `Developing Collections <https://docs.ansible.com/ansible/latest/dev_guide/developing_collections.html>`_
-* `Ansible Collections Requirements <https://docs.ansible.com/ansible/devel/community/collection_contributors/collection_requirements.html>`_
+* `Developing Collections <https://docs.ansible.com/ansible/latest/dev_guide/developing_collections.html>`_.
+* `Ansible Collections Requirements <https://docs.ansible.com/ansible/devel/community/collection_contributors/collection_requirements.html>`_.
 
 Work needed
 ===========
@@ -136,7 +136,7 @@ Users of Ansible
 
 `Using Ansible Collections <https://docs.ansible.com/ansible/latest/user_guide/collections_using.html>`_
 
-Q: Once the next version of Ansible is released, will my playbooks still work
+Q: Once the next version of Ansible is released, will my playbooks still work?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 For users of the community version of ansible ``pip/apt-get install ansible`` will continue to give you a working install of Ansible including the three thousand plus modules that previously shipped with Ansible 2.9.
@@ -155,7 +155,7 @@ These changes, however, will have both a temporary and permanent impact.
 * Permanent
 
   * Users of devel will need to get both ansible-base (the package with contains ``ansible-playbook``) and the ansible collections that their playbooks rely on. The collections will reside in multiple other git repositories (or can be installed from galaxy).
-  * If your workflow presently updates your checkout of the ansible devel branch, you'll need to change it to also retrieve the collections you need otherwise your playbooks will fail,
+  * If your workflow presently updates your checkout of the ansible devel branch, you'll need to change it to also retrieve the collections you need otherwise your playbooks will fail.
 
 Q: I'd like to consume the development stream of Ansible during this process. How do I do that?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -194,7 +194,7 @@ use-cases for ansible-base
   * ``include_tasks`` is hardcoded as the implementation is inside the engine, same with ``add_host``, ``group_by``, ``debug`` and others, async_wrapp, async-poll, assert/fail are 'parts of the language'
 * Development
 
-  * Ability to run ``ansible-test sanity,units,integration`` against the Ansible code base
+  * Ability to run ``ansible-test sanity,units,integration`` against the Ansible code base.
 * Parts of the Windows codebase that can't currently be removed from ansible-base.
 
 Bugs in ansible-base should be reported via  `ansible/ansible issues <https://github.com/ansible/ansible/issues/new/choose>`_.
@@ -238,23 +238,23 @@ Q: Why would I want a dedicated collection?
 
 The benefits of claiming content are the following:
 
-* Source content is housed in a GitHub organization/repository of your choosing
-* Source content is subject to your own CI processes, decisions, and testing
-* Your own dedicated Issue and PR backlog
-* Ability to use more GitHub functionality, such as direct assignments, reviews, milestones and Project Boards
+* Source content is housed in a GitHub organization/repository of your choice.
+* Source content is subject to your own CI processes, decisions, and testing.
+* Your own dedicated Issue and PR backlog.
+* Ability to use more GitHub functionality, such as direct assignments, reviews, milestones and Project Boards.
 
-Q: What will versioning and deprecation look like for Collections
+Q: What will versioning and deprecation look like for Collections?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 * In ansible/ansible:
 
-  * There is a single version number which is over everything shipped in Ansible
-  * Doesn't use semver, uses X.Y (ie 2.9) as the major number
-  * Deprecations are done over 4 versions (~ 2 years)
+  * There is a single version number which is over everything shipped in Ansible.
+  * Doesn't use semver, uses X.Y (ie 2.9) as the major number.
+  * Deprecations are done over 4 versions (~ 2 years).
 * In Collections
 
-  * Can be versioned and released independently to Ansible
-  * By convention, Galaxy requires a Collection to follow `semver (Semantic Versioning) <https://semver.org/>`_
+  * Can be versioned and released independently to Ansible.
+  * By convention, Galaxy requires a Collection to follow `semver (Semantic Versioning) <https://semver.org/>`_.
 
 Details around versioning and deprecation policy are still being worked on, we will have a proposal up shortly
 
@@ -272,8 +272,8 @@ Please note that Ansible 2.9 no longer receives bugfixes. Only security issues c
 
 The process for fixing a security issue is as follows:
 
-1. PR for bug fix made against the Collection
-2. PR gets merged into Collection
-3. Raise PR directly against ``ansible/ansible:stable-2.9`` (ie not a backport) including a ``changelogs/fragments/`` file
+1. PR for bug fix made against the Collection.
+2. PR gets merged into Collection.
+3. Raise PR directly against ``ansible/ansible:stable-2.9`` (ie not a backport) including a ``changelogs/fragments/`` file.
 
 The changes in the PR against ``ansible/ansible:stable-2.9`` should be as close as possible to the changes in the collection original PR, and you should add a reference to the collection PR in the ``ansible/ansible`` PR.
